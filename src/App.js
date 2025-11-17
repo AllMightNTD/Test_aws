@@ -1,31 +1,31 @@
-import {
-  Elements
-} from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
-import { CheckoutForm } from "./CheckoutForm";
-import ExportReport from "./ExcelExport";
-import SendTelegramButton from "./SendTelegramButton";
-import TelegramChatIdFetcher from "./TelegramChatIdFetcher";
+import React from 'react';
+import Navbar from './components/Navbar';
+import Banner from './components/Banner';
+import ProductCard from './components/ProductCard';
+import Footer from './components/Footer';
+import './index.css';
 
-const stripePromise = loadStripe(
-  "pk_test_51LdnpfKV038b6jFFQtlZzI2dZy5dYWrz8MmVYRrQydnyB9txsyC21UWVNuKNj35oyb3VMB5hFedr1aABaqYMKklB00zxptFmUz"
-);
+const products = [
+  { id: 1, name: 'Product 1', description: 'High quality product', price: 29.99, image: 'https://via.placeholder.com/220' },
+  { id: 2, name: 'Product 2', description: 'High quality product', price: 49.99, image: 'https://via.placeholder.com/220' },
+  { id: 3, name: 'Product 3', description: 'High quality product', price: 19.99, image: 'https://via.placeholder.com/220' },
+  { id: 4, name: 'Product 4', description: 'High quality product', price: 39.99, image: 'https://via.placeholder.com/220' },
+  { id: 5, name: 'Product 5', description: 'High quality product', price: 59.99, image: 'https://via.placeholder.com/220' },
+];
 
-// ⚡ clientSecret phải là của SetupIntent bạn tạo từ backend
-const options = {
-  clientSecret: "seti_1SOCPdKV038b6jFFc2DM78gs_secret_TKs9MNOOlnM2TDZXPuZDNAYFou7hJn6",
-  appearance: {
-    theme: 'night',
-  },
-};
-
-export default function App() {
+function App() {
   return (
-    <Elements stripe={stripePromise} options={options}>
-      {/* <CheckoutForm />
-      <ExportReport/> */}
-      <TelegramChatIdFetcher/>
-      <SendTelegramButton/>
-    </Elements>
+    <div>
+      <Navbar />
+      <Banner />
+      <div className="products">
+        {products.map(product => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
+      <Footer />
+    </div>
   );
 }
+
+export default App;
