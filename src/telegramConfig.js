@@ -1,0 +1,2 @@
+export const TELEGRAM_BOT_TOKEN = "8290024680:AAHCj7i0xlapYDUr1JVqtGnaiy3jSuGvEaM";
+export const TELEGRAM_CHAT_ID = "5136252268";
