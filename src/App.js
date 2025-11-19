@@ -24,7 +24,7 @@ function App() {
   const placeBet = (symbol) => {
     if (isRolling) return;
     if (balance < selectedChip) {
-      alert('Không đủ tiền để cược!');
+      alert('Không đủ tiền để cược bạn nhé!');
       return;
     }
 
